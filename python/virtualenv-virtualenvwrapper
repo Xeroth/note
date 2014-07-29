@@ -1,0 +1,59 @@
+环境Mac OS X
+一.virtualenv安装使用
+安装：
+$ sudo pip install virtualenv
+查看版本：
+$ virtualenv --version
+1.11.6
+
+创建项目文件夹：
+$ mkdir hula
+
+创建虚拟环境文件夹
+To create a folder for your new app that includes a clean copy of Python, simply run:：
+$ virtualenv hula/venv
+
+激活虚拟环境：
+$ cd venv/bin &&  source activate
+然后你用pip或者easy_install安装的包都会放到这个目录：
+hula/venv/lib/python2.7/site-packages
+
+退出虚拟环境：deactivate
+
+二.Virtualenvwrapper
+安装：
+sudo pip install  virtualenvwrapper
+
+初始化工作：
+将source /usr/local/bin/virtualenvwrapper.sh 这句加入你的shell 的初始化文件中
+
+初始化完成后，创建一个虚拟环境：
+$ mkvirtualenv env1
+然后虚拟环境的文件存放在目录：~/.virtualenvs/env1/ ,也就是变量 $WORKON_HOME
+
+退出虚拟环境：
+$ deactivate
+
+进入已存在的环境或者切换环境：
+$ workon env1或者env2
+删除环境:
+$ rmvirtualenv env1
+
+进入一个虚拟环境，查看pip所安装的包：
+$ pip freeze
+wsgiref==0.1.2
+这远比外面的python环境要干净多了
+
+列出所有的虚拟环境：
+$ lsvirtualenv
+
+列出所有的sitepackeages
+$ lssitepackages
+
+还有一个No site packages这个不知道是干嘛的.
+
+个性化虚拟环境：
+比如激活虚拟环境的操作可以放到这里：$WORKON_HOME/postactivate
+也可以把常用的包加到这里，让每个虚拟化环境自动安装常用的包：echo 'pip install sphinx' >> $WORKON_HOME/postmkvirtualenv
+
+以上就是virtualenvwrapper的基础用法，更多高级用法：http://virtualenvwrapper.readthedocs.org/en/latest/index.html
